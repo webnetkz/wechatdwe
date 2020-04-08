@@ -22,6 +22,24 @@
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
+
+    .modal {
+      display: block;
+      position: fixed;
+      left: -100vw;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: 9999999999999999999999999999999999999999999999999;
+      background-color: rgb(255, 255, 255);
+      transition-duration: 600ms;
+      padding: 50px;
+      padding-top: 20px;
+    }
+
+
+
+
     .form-group{
       margin-bottom: 15px;
     }
@@ -78,12 +96,35 @@
   </style>
 </head>
 <body>
+
       <div class="content-form">
         <script>
           $(document).ready(function(){
           // --- Автозаполнение ---
           $("#city_from").autocompleteArray([
             <?php require_once "dataCitys/rus.php"?>
+          ],
+              {
+                delay:10,
+                minChars:1,
+                matchSubset:1,
+                autoFill:true,
+                maxItemsToShow:10
+              }
+          );
+          });
+
+          function show_item(id, status)
+          {
+            if (status==0)	$('#'+id).animate({ height: "hide"}, "hide");
+            else $('#'+id).animate({ height: "show" }, "slow");
+          }
+        </script>
+        <script>
+          $(document).ready(function(){
+          // --- Автозаполнение ---
+          $("#oblto").autocompleteArray([
+            <?php require_once "dataCitys/oblRus.php"?>
           ],
               {
                 delay:10,
@@ -156,7 +197,7 @@
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-globe fa" aria-hidden="true"></i></span>
- <input type="text" class="form-control" name="obl" placeholder="Введите область доставки"/>
+ <input type="text" class="form-control" name="obl" id="oblto" placeholder="Введите область доставки"/>
  </div>
  </div>
  </div>
@@ -217,6 +258,7 @@
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-dollar fa" aria-hidden="true"></i></span>
  <input type="text" class="form-control" name="toPrice" id="obl" placeholder="Введите объявленную стоимость(￥)"/>
+ <span class="input-group-addon" onclick="openModal1()"><i class="fa fa-question fa" aria-hidden="true"></i></span>
  </div>
  </div>
  </div>
@@ -311,18 +353,22 @@ border-radius: 50%;
   <label class="btt">
     <input type="radio" class="option-input radio bttt" name="pack" value="Пленка + пакет"/>
     Пленка + пакет
+  <i onclick="openModal2()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid white; border-radius: 5px;"></i>
   </label>
   <label class="btt">
     <input type="radio" class="option-input radio bttt" name="pack" value="Коробка"/>
     Коробка
+    <i onclick="openModal3()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid white; border-radius: 5px;"></i>
   </label class="btt">
   <label>
     <input type="radio" class="option-input radio bttt" name="pack" value="Коробка + уголок" />
     Коробка + уголок
+    <i onclick="openModal4()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid white; border-radius: 5px;"></i>
   </label>
 	  <label>
     <input type="radio" class="option-input radio bttt" name="pack" value="Обрешётка"/>
     Обрешётка
+    <i onclick="openModal5()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid white; border-radius: 5px;"></i>
   </label>
 </div>
 	 <hr>
@@ -331,8 +377,8 @@ border-radius: 50%;
 		   <h3>Услуга фотоотчёт</h3>
     <input type="checkbox" class="option-input radio bttt" name="photo" value="Фото"/>
     Да
+    <i onclick="openModal6()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid white; border-radius: 5px;"></i>
   </label>
-
 
  <div class="form-group ">
  <input name="sendZakaz" type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Оформить">
@@ -340,9 +386,128 @@ border-radius: 50%;
  </form>
  </div>
  </div>
-	
+
+ <div class="modal modal1" onclick="closeModal1()">
+    <h2>Объявленная стоимость</h2>
+    <hr>
+    <p>К отправке принимаются посылки с объявленной стоимостью от 100 ￥ до 5000 ￥. 
+    Сервисный сбор рассчитывается от суммы объявленной стоимости посылки -- 
+    От 100￥ до 1000￥：1.5%，От 1001￥ до 2000￥：2%，От 2001￥ до 3000￥：2.5%, От 
+    3001￥ до 4000￥：3%, От 4001￥до 5000￥：4%</p>
+ </div>
+ <div class="modal modal2" onclick="closeModal2()">
+    <h2>Пленка + пакет</h2>
+    <hr>
+    <p>Пленка + пакет от 5 до 10￥ - подходит для упаковки нехрупкого штучного товара, обуви, а также одежды, не относящейся к деликатной. Однако предметы с декоративными элементами – стразами, пайетками и т.д. нужно упаковывать в плёнку, а затем в коробку.</p>
+    <p>
+      <img src="images/modal2-1.jpg" alt="" width="130">
+      <img src="images/modal2-2.jpg" alt="" width="130">
+    </p>
+ </div>
+ <div class="modal modal3" onclick="closeModal3()">
+    <h2>Коробка</h2>
+    <hr>
+    <p>Коробка от 10 до 25￥ - подходит для сборных совместимых товаров. В случае если внешний вид фирменной коробки не является приоритетным, или она вообще не нужна (об этом нужно указывать в примечании при оформлении – за счет этого уменьшится вес отправления и, соответственно стоимость доставки).</p>
+    <p>
+      <img src="images/modal3.webp" alt="" width="130">
+    </p>
+ </div>
+ <div class="modal modal4" onclick="closeModal4()">
+    <h2>Коробка+ уголок</h2>
+    <hr>
+    <p>Коробка+ уголок от 25 до 40￥ - подходит для сборных совместимых товаров – хрупких, деликатных грузов, а также предметов, способных повредить или испортить соседствующие отправления. Также необходимо упаковывать товар таким образом, если вам важна сохранность фирменных упаковок от производителей – это наиболее актуально для обуви и сумок.</p>
+    <p style="color: red; font-size: 0.8em">Внимание!
+1. Защитные уголки могут увеличить вес груза, что, соответственно, может повлиять на конечную стоимость перевозки.</p>
+    <p>
+      <img src="images/modal3.webp" alt="" width="130">
+      <img src="images/modal4.jpg" alt="" width="130">
+    </p>
+ </div>
+ <div class="modal modal5" onclick="closeModal5()">
+    <h2>Обрешётка</h2>
+    <hr>
+    <p>Обрешётка от 40 до 80￥ - самый подходящий вариант упаковки для хрупких грузов, а также для специфических категорий товаров - оборудования, оргтехники,стеклянных и керамических изделий.</p>
+    <p style="color: red;">Внимание!
+1. Обрешётка может увеличить вес груза, что, соответственно, может повлиять на конечную стоимость перевозки.
+</p>
+    <p>
+      <img src="images/modal3.webp" alt="" width="130">
+      <img src="images/modal5.jpg" alt="" width="130">
+    </p>
+ </div>
+ <div class="modal modal6" onclick="closeModal6()">
+    <h2>Фотоотчет</h2>
+    <hr>
+    <p>Заказывая услугу «фотоотчет» вы сможете проверить содержимое своей посылки (цвет- модель)до отправки. Стоимость услуги 10¥.</p></p>
+ </div>
+<script>
+    function openModal1() {
+      let mod = document.querySelector('.modal1');
+      mod.style.left = '0px';
+    }
+
+    function closeModal1() {
+      let mod = document.querySelector('.modal1');
+      mod.style.left = '-100vw';
+    }
+    ////////////////////////////
+    function openModal2() {
+      let mod = document.querySelector('.modal2');
+      mod.style.left = '0px';
+    }
+
+    function closeModal2() {
+      let mod = document.querySelector('.modal2');
+      mod.style.left = '-100vw';
+    }
+    ///////////////////////////
+    function openModal3() {
+      let mod = document.querySelector('.modal3');
+      mod.style.left = '0px';
+    }
+
+    function closeModal3() {
+      let mod = document.querySelector('.modal3');
+      mod.style.left = '-100vw';
+    }
+    ///////////////////////////
+    function openModal4() {
+      let mod = document.querySelector('.modal4');
+      mod.style.left = '0px';
+    }
+
+    function closeModal4() {
+      let mod = document.querySelector('.modal4');
+      mod.style.left = '-100vw';
+    }
+    ///////////////////////////
+    function openModal5() {
+      let mod = document.querySelector('.modal5');
+      mod.style.left = '0px';
+    }
+
+    function closeModal5() {
+      let mod = document.querySelector('.modal5');
+      mod.style.left = '-100vw';
+    }
+    ///////////////////////////
+    function openModal6() {
+      let mod = document.querySelector('.modal6');
+      mod.style.left = '0px';
+    }
+
+    function closeModal6() {
+      let mod = document.querySelector('.modal6');
+      mod.style.left = '-100vw';
+    }
+</script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>
+
+
+
+
+
 
 </body>
 </html>
