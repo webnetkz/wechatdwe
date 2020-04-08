@@ -17,7 +17,11 @@
 <!-- Main css -->
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
-
+<style>
+     p {
+          color: rgb(255, 255, 255);
+     }
+</style>
 </head>
 <body>
 
@@ -46,8 +50,7 @@
                <ul class="nav navbar-nav navbar-right">
                <li class="active"><a href="order.php">Оформить</a></li>
                     <li><a href="contact.php">Контакты</a></li>
-                    <li><a href="about.php">О нас</a></li>
-                    <li><a href="services.php">Услуги</a></li>
+                    <li><a href="terms.php">Услуги</a></li>
                     <li class="active"><a href="tips.php">Советы</a></li>
                     <hr>
                     <li class="active"><a href="https://home.courierexe.ru/290/tracking/">Трекинг</a></li>
