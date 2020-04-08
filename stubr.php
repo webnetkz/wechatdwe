@@ -290,7 +290,7 @@ text-align: left;
 		</div>
 	</div>
 <div style="position: fixed; left: 0; top: 90vh; width: 100vw; height: 10vh; background-color: rgba(255, 255, 255, 0.8);">
-		<a href="orderr">
+		<a href="orderr.php">
 			<button type="button" class="btn btn-primary" style="width: 80%; margin-bottom: 5px; margin-left: 10%; margin-top: 15px;">Оформить</button>
 		</a>
 	</div>

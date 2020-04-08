@@ -16,431 +16,111 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/style.css">
-
 <!-- Main css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
-	
+  <style>
+    .form-group{
+      margin-bottom: 15px;
+    }
+    label{
+      margin-bottom: 15px;
+    }
+    input,
+    input::-webkit-input-placeholder {
+      font-size: 11px;
+      padding-top: 3px;
+    }
+    .form-control {
+      height: auto!important;
+      padding: 8px 12px !important;
+    }
+    .input-group {
+      box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    }
+    #button {
+      border: 1px solid #ccc;
+      margin-top: 28px;
+      padding: 6px 12px;
+      color: #666;
+      text-shadow: 0 1px #fff;
+      cursor: pointer;
+      border-radius: 3px 3px;
+      box-shadow: 0 1px #fff inset, 0 1px #ddd;
+      background: #f5f5f5;
+      background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
+      background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+      background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+      background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+      background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
+    }
+    .main-form{
+      margin-top: 30px;
+      margin: 0 auto;
+      max-width: 400px;
+      padding: 10px 40px;
+      background:#009edf;
+      color: #FFF;
+      text-shadow: none;
+      box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    }
+    span.input-group-addon i {
+      color: #009edf;
+      font-size: 17px;
+    }
+    .login-button{
+      margin-top: 15px;
+    }
+  </style>
 </head>
 <body>
-<div class="content-form">
-<script>
-<!--
+      <div class="content-form">
+        <script>
+          $(document).ready(function(){
+          // --- Автозаполнение ---
+          $("#city_from").autocompleteArray([
+            <?php require_once "dataCitys/rus.php"?>
+          ],
+              {
+                delay:10,
+                minChars:1,
+                matchSubset:1,
+                autoFill:true,
+                maxItemsToShow:10
+              }
+          );
+          });
 
-$(document).ready(function(){
-// --- Автозаполнение ---
-$("#city_from").autocompleteArray([
-'Братиславская,ул., д.22',
-'1-й Курьяновский проезд',
-'Абакан',
-'Азамар',
-'Актау',
-'Актобе',
-'Алдан',
-'Алма Ата',
-'Алматы',
-'Альметьевск',
-'Анадырь',
-'Анапа',
-'Ангарск',
-'Андреаполь',
-'Апатиты',
-'Апрелевка (М.О.)',
-'Армавир',
-'Арсеньев(Приморский Край)',
-'Артем',
-'Архангельск',
-'Астрахань',
-'Ачинск',
-'Балаково',
-'Барабинск',
-'Барнаул',
-'Батайск',
-'Белая Калитва',
-'Белгород',
-'Белово',
-'Белогорск',
-'Белоярский',
-'Березники',
-'Березово',
-'Бийск',
-'Бикин',
-'Биробиджан',
-'Благовещенск',
-'Бологое',
-'Большой камень',
-'Борзя',
-'Борисоглебск',
-'Братск',
-'Брянск',
-'Бугульма',
-'Буденновск',
-'Бурея',
-'ВВЦ',
-'Ванино',
-'Великий Новгород',
-'Вельск',
-'Верейская ул.,д.29',
-'Верещагино',
-'Верхний Уфалей',
-'Владивосток',
-'Владикавказ',
-'Владимир',
-'Волгоград',
-'Волжский',
-'Вологда',
-'Воркута',
-'Воронеж',
-'Вохма( Костромская обл.)',
-'Выборг',
-'Вышний Волочек',
-'Вяземская',
-'Газ Сале',
-'Германия',
-'Глазов',
-'Гороблагодатская',
-'Горький',
-'Грозный',
-'Губкинский',
-'Дальнеречинск',
-'Дзержинск',
-'Дружинино',
-'Ейск',
-'Екатеринбург',
-'Ерофей Павлович',
-'Ефремов',
-'Жиздра',
-'Жуковский МО',
-'Забайкальск',
-'Звенегородское шоссе,д.18',
-'Звенигород',
-'Зеленодольск',
-'Зима',
-'Иваново',
-'Ижевск',
-'Иланская',
-'Инта',
-'Иркутск',
-'Ишим',
-'Йошкар Ола',
-'Казань',
-'Калининград',
-'Калуга',
-'Каменск Уральский',
-'Кандалакша',
-'Канск Енисейский ',
-'Карымская',
-'Каширское ш 67 стр 5',
-'Кемерово',
-'Кемь',
-'Кириши',
-'Киров',
-'Китай',
-'Ковров',
-'Ковылкино',
-'Когалым',
-'Коломна',
-'Комсамольск на Амуре',
-'Коноша',
-'Корея(г.Сеул)',
-'Кострома',
-'Котлас',
-'Краснодар',
-'Красноуфимск',
-'Красноярск',
-'Крым',
-'Крымск',
-'Кузнецк',
-'Курган',
-'Курск',
-'Кызыл',
-'Лабытнанги',
-'Лангепас',
-'Лена',
-'Лесозаводск',
-'Липецк',
-'Люберцы',
-'Магадан',
-'Магдагачи',
-'Магнитогорск',
-'Майкоп',
-'Мариинск',
-'Махачкала',
-'Медвежьегорск',
-'Миасс',
-'Микунь',
-'Минеральные Воды',
-'Минск',
-'Мирный',
-'Могоча',
-'Мончегорск',
-'Москва',
-'Мурманск',
-'Набережные Челны',
-'Надым',
-'Назрань',
-'Нальчик',
-'Нарьян-Мар',
-'Наушки',
-'Находка',
-'Невинномыск',
-'Невинномысск',
-'Некрасовка ',
-'Нерюнгри',
-'Нефтекамск',
-'Нефтеюганск',
-'Нижневартовск',
-'Нижнекамск',
-'Нижнеудинск',
-'Нижний Новгород',
-'Нижний Тагил ',
-'Новая Чара',
-'Новгород на Волхове',
-'Новокузнецк',
-'Новокуйбышевск',
-'Новороссийск',
-'Новосибирск',
-'Новочебоксарск',
-'Новый Уренгой',
-'Ногинск',
-'Норильск',
-'Ноябрьск',
-'Нурлат',
-'Нягань',
-'Няндома',
-'Облучье',
-'Обнинск',
-'Обозерский',
-'Оленегорск',
-'Оловянная',
-'Омск',
-'Орел',
-'Оренбург',
-'Орск',
-'Падун Пороги ',
-'Пангоды',
-'Партизанск',
-'Певек',
-'Пенза',
-'Пермь',
-'Петрозаводск',
-'Петропаловск Камчатский',
-'Печора',
-'Пикалево(Ленингр.обл.)',
-'Плесецк Архангельская обл',
-'Плесецкая',
-'Поворино(Воронежской обл.',
-'Подольск',
-'Поллеск',
-'Пос.Силятино',
-'Приобье',
-'Прокопьевск',
-'Псков',
-'Пуровск',
-'Пушкино',
-'Пятигорск',
-'Реутов',
-'Россошь',
-'Ростов на Дону',
-'Ружино',
-'Рыбинск',
-'Рязанский проспект,д.2',
-'Рязань',
-'Салават',
-'Салехард',
-'Самара',
-'Санкт Петербург',
-'Саранск',
-'Саратов',
-'Саров',
-'Саяногорск',
-'Свободный',
-'Северобайкальск',
-'Северодвинск',
-'Серов',
-'Серпухов',
-'Сибирцево',
-'Сковородино',
-'Словакия',
-'Слюдянка',
-'Смоленск',
-'Советский',
-'Соликамск',
-'Солнечногорск',
-'Солнечногорский район д.П',
-'Сосногорск',
-'Сочи',
-'Спас-Клепики',
-'Спасск Дальний ',
-'Спасское',
-'Ставрополь',
-'Старый Оскол',
-'Стерлитамак',
-'Стрежевой',
-'Ступино',
-'Сургут',
-'Сызрань',
-'Сыктывкар',
-'Таганрог',
-'Тайга',
-'Тайшет',
-'Таксимо',
-'Тамбов',
-'Тарко Сале',
-'Татарск',
-'Тверь',
-'Тихоокеанская',
-'Тобольск',
-'Тольятти',
-'Томилино',
-'Томмот',
-'Томск',
-'Трехгорный',
-'Туапсе',
-'Тула',
-'Тулун',
-'Тыгда',
-'Тында',
-'Тюмень',
-'Улан Удэ',
-'Ульяновск           ',
-'Урай',
-'Усинск',
-'Уссурийск',
-'Усть Каменогорск',
-'Усть Кут',
-'Уфа',
-'Ухта',
-'Хабаровск',
-'Ханты Мансийск',
-'Харп',
-'Хвалынск',
-'Хилок',
-'Чебоксары',
-'Челябинск',
-'Череповец',
-'Чернышевск',
-'Черняховск',
-'Чита',
-'Чудово',
-'Чульман(Саха Якутия)',
-'Чусовская',
-'Чучково пос.',
-'Шарья',
-'Шахты',
-'Шилка',
-'Шимановская',
-'Элиста',
-'Энгельс',
-'Юбилейный',
-'Южно Сахалинск',
-'Якутск',
-'Ямбург',
-'Яр Сале',
-'Ярославль',
-'Ярославское шоссе ',
-'пос. Икша МО',
-'ул 2я Тверская-Ямская'],
-		{
-			delay:10,
-			minChars:1,
-			matchSubset:1,
-			autoFill:true,
-			maxItemsToShow:10
-		}
-);
-// --- Автозаполнение ---
-
-
-});
-
-function show_item(id, status)
-{
-	if (status==0)	$('#'+id).animate({ height: "hide"}, "hide");
-	else $('#'+id).animate({ height: "show" }, "slow");
-}
-
-</script>
-<!-- PRE LOADER -->
-
+          function show_item(id, status)
+          {
+            if (status==0)	$('#'+id).animate({ height: "hide"}, "hide");
+            else $('#'+id).animate({ height: "show" }, "slow");
+          }
+        </script>
+<!-- PRELOADER -->
 <div class="preloader">
      <div class="sk-spinner sk-spinner-wordpress">
           <span class="sk-inner-circle"></span>
      </div>
 </div>
-	
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-<style>
-.form-group{
- margin-bottom: 15px;
-}
-label{
- margin-bottom: 15px;
-}
-input,
-input::-webkit-input-placeholder {
- font-size: 11px;
- padding-top: 3px;
-}
-.form-control {
- height: auto!important;
-padding: 8px 12px !important;
-}
-.input-group {
- box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-}
-#button {
- border: 1px solid #ccc;
- margin-top: 28px;
- padding: 6px 12px;
- color: #666;
- text-shadow: 0 1px #fff;
- cursor: pointer;
- border-radius: 3px 3px;
- box-shadow: 0 1px #fff inset, 0 1px #ddd;
- background: #f5f5f5;
- background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
- background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
- background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
- background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
- background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
- background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
- filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
-}
-.main-form{
- margin-top: 30px;
- margin: 0 auto;
- max-width: 400px;
- padding: 10px 40px;
-background:#009edf;
-color: #FFF;
-text-shadow: none;
-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-}
-span.input-group-addon i {
- color: #009edf;
- font-size: 17px;
-}
-.login-button{
- margin-top: 5px;
-}
-</style>
 
  <div class="container">
- <div class="row main-form">
- <form class="" method="post" action="../app/api/orderWechatRus"> 
+  <div class="row main-form">
+    <form class="" method="post" action="api/orderWechatRus.php"> 
 
- <div class="form-group">
- <label for="name" class="cols-sm-2 control-label">ФИО отправителя</label>
- <div class="cols-sm-10">
- <div class="input-group">
- <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
- <input type="text" class="form-control" name="fromFIO" id="namefrom" placeholder="Введите имя"/>
- </div>
- </div>
- </div>
+      <div class="form-group">
+        <label for="name" class="cols-sm-2 control-label">ФИО отправителя</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" name="fromFIO" id="namefrom" placeholder="Введите имя"/>
+            </div>
+          </div>
+      </div>
 
  <div class="form-group">
  <label for="email" class="cols-sm-2 control-label">Телефон отправителя</label>
@@ -540,9 +220,13 @@ span.input-group-addon i {
  </div>
  </div>
  </div>
-	 <hr>
-<style>
-	@keyframes click-wave {
+   <hr>
+   
+
+
+
+   <style>
+     @keyframes click-wave {
   0% {
     height: 40px;
     width: 40px;
@@ -621,23 +305,23 @@ border-radius: 50%;
 	width: 100%;
 	}
 
-	 </style>
+   </style>
 <div>
 	<h3>Выбор упаковки</h3>
   <label class="btt">
-    <input type="checkbox" class="option-input radio bttt" name="pack" value="Пленка + пакет"/>
+    <input type="radio" class="option-input radio bttt" name="pack" value="Пленка + пакет"/>
     Пленка + пакет
   </label>
   <label class="btt">
-    <input type="checkbox" class="option-input radio bttt" name="pack" value="Коробка"/>
+    <input type="radio" class="option-input radio bttt" name="pack" value="Коробка"/>
     Коробка
   </label class="btt">
   <label>
-    <input type="checkbox" class="option-input radio bttt" name="pack" value="Коробка + уголок" />
+    <input type="radio" class="option-input radio bttt" name="pack" value="Коробка + уголок" />
     Коробка + уголок
   </label>
 	  <label>
-    <input type="checkbox" class="option-input radio bttt" name="pack" value="Обрешётка"/>
+    <input type="radio" class="option-input radio bttt" name="pack" value="Обрешётка"/>
     Обрешётка
   </label>
 </div>
