@@ -53,7 +53,7 @@
                <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="order.php">Оформить</a></li>
                     <li><a href="contact.php">Контакты</a></li>
-                    <li><a href="terms.php">Услуги</a></li>
+                    <li><a href="terms.php">Условия</a></li>
                     <li><a href="tips.php">Советы</a></li>
                     <hr>
                     <li><a href="https://home.courierexe.ru/290/tracking/">Трекинг</a></li>
