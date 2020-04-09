@@ -192,6 +192,15 @@
  </div>
  </div>
 <hr>
+<div class="form-group">
+ <label for="email" class="cols-sm-2 control-label">Вес</label>
+ <div class="cols-sm-10">
+ <div class="input-group">
+ <span class="input-group-addon"><i class="fa fa-balance-scale" aria-hidden="true"></i></span>
+ <input type="text" class="form-control" name="toMass" placeholder="Введите вес посылки"/>
+ </div>
+ </div>
+ </div>
 	 	  <div class="form-group">
  <label for="email" class="cols-sm-2 control-label">Область</label>
  <div class="cols-sm-10">

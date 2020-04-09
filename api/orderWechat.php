@@ -63,8 +63,8 @@ if( !empty($_POST['sendZakaz']) ) {
         //$toIndex = htmlspecialchars($_POST['toIndex']);
         //$toIndex = trim($toIndex);
 
-        //$toMass = htmlspecialchars($_POST['toMass']);
-        //$toMass = trim($toMass);
+        $toMass = htmlspecialchars($_POST['toMass']);
+        $toMass = trim($toMass);
 
         $toPrice = htmlspecialchars($_POST['toPrice']);
         $toPrice = trim($toPrice);
@@ -114,7 +114,7 @@ $request = <<<XML
      <coords lat="" lon=""></coords>
    </receiver>
    <return>NO</return>
-   <weight></weight>
+   <weight>$toMass</weight>
    <return_weight></return_weight>
    <quantity></quantity>
    <paytype>CASH</paytype>
