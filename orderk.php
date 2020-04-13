@@ -23,6 +23,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
 
+    body {
+      background-color: rgb(255, 255, 255);
+    }
     .modal {
       display: block;
       position: fixed;
@@ -36,7 +39,16 @@
       padding: 50px;
       padding-top: 20px;
     }
-
+    .closeModal {
+      position: absolute;
+      top: 10px;
+      left: 80%;
+      color: rgb(0, 158, 223);
+      font-weight: 100;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid rgb(0, 158, 223);
+    }
 
 
 
@@ -45,6 +57,7 @@
     }
     label{
       margin-bottom: 15px;
+      color: rgb(0, 158, 223);
     }
     input,
     input::-webkit-input-placeholder {
@@ -57,6 +70,8 @@
     }
     .input-group {
       box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+      border: 1px solid rgb(0, 158, 223);
+      border-radius: 5px;
     }
     #button {
       border: 1px solid #ccc;
@@ -78,12 +93,11 @@
     }
     .main-form{
       margin-top: 30px;
-      margin: 0 auto;
-      max-width: 400px;
-      padding: 10px 40px;
-      background:#009edf;
+      padding: 10px 10px;
+      background: rgb(255, 255, 255);
       color: #FFF;
       text-shadow: none;
+      width: 100vw;
       box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
     }
     span.input-group-addon i {
@@ -168,7 +182,7 @@
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
- <input type="number" class="form-control" name="fromPhone" id="phonefrom" placeholder="Введите номер"/>
+ <input type="phone" class="form-control" name="fromPhone" id="phonefrom" placeholder="Введите номер"/>
  </div>
  </div>
  </div>
@@ -187,7 +201,7 @@
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
- <input type="number" class="form-control" name="toPhone" id="phoneto" placeholder="Введите номер"/>
+ <input type="phone" class="form-control" name="toPhone" id="phoneto" placeholder="Введите номер"/>
  </div>
  </div>
  </div>
@@ -201,7 +215,7 @@
  </div>
  </div>
  </div>
-	 	  <div class="form-group">
+<!--	 	  <div class="form-group">
  <label for="email" class="cols-sm-2 control-label">Область</label>
  <div class="cols-sm-10">
  <div class="input-group">
@@ -209,7 +223,7 @@
  <input type="text" class="form-control" name="obl" id="oblto" placeholder="Введите область доставки"/>
  </div>
  </div>
- </div>
+ </div>-->
 	 	 	  <div class="form-group">
  <label for="email" class="cols-sm-2 control-label">Город</label>
  <div class="cols-sm-10">
@@ -362,31 +376,31 @@ border-radius: 50%;
   <label class="btt">
     <input type="radio" class="option-input radio bttt" name="pack" value="Пленка + пакет"/>
     Пленка + пакет
-  <i onclick="openModal2()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid white; border-radius: 5px;"></i>
+  <i onclick="openModal2()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
   <label class="btt">
     <input type="radio" class="option-input radio bttt" name="pack" value="Коробка"/>
     Коробка
-    <i onclick="openModal3()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid white; border-radius: 5px;"></i>
+    <i onclick="openModal3()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid rgb(0, 158, 223); border-radius: 5px;"></i>
   </label class="btt">
   <label>
     <input type="radio" class="option-input radio bttt" name="pack" value="Коробка + уголок" />
     Коробка + уголок
-    <i onclick="openModal4()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid white; border-radius: 5px;"></i>
+    <i onclick="openModal4()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
 	  <label>
     <input type="radio" class="option-input radio bttt" name="pack" value="Обрешётка"/>
     Обрешётка
-    <i onclick="openModal5()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid white; border-radius: 5px;"></i>
+    <i onclick="openModal5()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
 </div>
 	 <hr>
 
 	   <label>
-		   <h3>Услуга фотоотчёт</h3>
-    <input type="checkbox" class="option-input radio bttt" name="photo" value="Фото"/>
+		   <h3 onclick="openModal6()">Услуга фотоотчёт</h3>
+    <input type="checkbox" class="option-input radio bttt" name="photo" value="Фото" onclick="openModal6()"/>
     Да
-    <i onclick="openModal6()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid white; border-radius: 5px;"></i>
+    <i onclick="openModal6()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
 
  <div class="form-group ">
@@ -397,6 +411,7 @@ border-radius: 50%;
  </div>
 
  <div class="modal modal1" onclick="closeModal1()">
+      <span class="closeModal">Закрыть</span>
     <h2>Объявленная стоимость</h2>
     <hr>
     <p>К отправке принимаются посылки с объявленной стоимостью от 100 ￥ до 5000 ￥. 
@@ -405,6 +420,7 @@ border-radius: 50%;
     3001￥ до 4000￥：3%, От 4001￥до 5000￥：4%</p>
  </div>
  <div class="modal modal2" onclick="closeModal2()">
+      <span class="closeModal">Закрыть</span>
     <h2>Пленка + пакет</h2>
     <hr>
     <p>Пленка + пакет от 5 до 10￥ - подходит для упаковки нехрупкого штучного товара, обуви, а также одежды, не относящейся к деликатной. Однако предметы с декоративными элементами – стразами, пайетками и т.д. нужно упаковывать в плёнку, а затем в коробку.</p>
@@ -414,6 +430,7 @@ border-radius: 50%;
     </p>
  </div>
  <div class="modal modal3" onclick="closeModal3()">
+      <span class="closeModal">Закрыть</span>
     <h2>Коробка</h2>
     <hr>
     <p>Коробка от 10 до 25￥ - подходит для сборных совместимых товаров. В случае если внешний вид фирменной коробки не является приоритетным, или она вообще не нужна (об этом нужно указывать в примечании при оформлении – за счет этого уменьшится вес отправления и, соответственно стоимость доставки).</p>
@@ -422,6 +439,7 @@ border-radius: 50%;
     </p>
  </div>
  <div class="modal modal4" onclick="closeModal4()">
+      <span class="closeModal">Закрыть</span>
     <h2>Коробка+ уголок</h2>
     <hr>
     <p>Коробка+ уголок от 25 до 40￥ - подходит для сборных совместимых товаров – хрупких, деликатных грузов, а также предметов, способных повредить или испортить соседствующие отправления. Также необходимо упаковывать товар таким образом, если вам важна сохранность фирменных упаковок от производителей – это наиболее актуально для обуви и сумок.</p>
@@ -433,6 +451,7 @@ border-radius: 50%;
     </p>
  </div>
  <div class="modal modal5" onclick="closeModal5()">
+      <span class="closeModal">Закрыть</span> 
     <h2>Обрешётка</h2>
     <hr>
     <p>Обрешётка от 40 до 80￥ - самый подходящий вариант упаковки для хрупких грузов, а также для специфических категорий товаров - оборудования, оргтехники,стеклянных и керамических изделий.</p>
@@ -445,9 +464,11 @@ border-radius: 50%;
     </p>
  </div>
  <div class="modal modal6" onclick="closeModal6()">
+      <span class="closeModal">Закрыть</span>
     <h2>Фотоотчет</h2>
     <hr>
     <p>Заказывая услугу «фотоотчет» вы сможете проверить содержимое своей посылки (цвет- модель)до отправки. Стоимость услуги 10¥.</p></p>
+    <h2>Внимание! Услуга платная.</h2>
  </div>
 <script>
     function openModal1() {

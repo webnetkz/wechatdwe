@@ -229,13 +229,14 @@ text-align: left;
 </tr>
 </table>
 </p>
-			  <br>
-			  <p> Посылка весом до 3-х кг не должена превышать размер 80 см (длина+ширина+высота).</p>
-				    
-			  
+
+			  <!--<p> Посылка весом до 3-х кг не должена превышать размер 80 см (длина+ширина+высота).</p>
+				  -->  
+				  <br>
 			  
 			  </div>
 		</div>
+			<br>
 	</div>
 			<div class="container">
           <div class="row">
@@ -273,8 +274,11 @@ text-align: left;
 				  </div>
 		</div>
 	</div>
-	
-	<div class="container">
+	<br>
+	<br>
+	<br>
+	<br>
+	<!--<div class="container">
           <div class="row">
                <div class="col-md-12 col-sm-12 blockW">
 				   <h3>Также мы оставляем за собой право отказать в доставке:</h3>
@@ -288,7 +292,7 @@ text-align: left;
 </ul>
 				  </div>
 		</div>
-	</div>
+	</div>-->
 <div style="position: fixed; left: 0; top: 90vh; width: 100vw; height: 10vh; background-color: rgba(255, 255, 255, 0.8);">
 		<a href="orderr.php">
 			<button type="button" class="btn btn-primary" style="width: 80%; margin-bottom: 5px; margin-left: 10%; margin-top: 15px;">Оформить</button>

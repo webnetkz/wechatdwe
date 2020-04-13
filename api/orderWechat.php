@@ -1,6 +1,6 @@
 <?php
 
-require_once '../libs/debug.php';
+//require_once '../libs/debug.php';
 
 session_start();
 
@@ -163,7 +163,7 @@ if(!empty($xml)) {
 //require_once '../libs/mail.php';
 
 //$_SESSION['msg'] = 'Ваш трек номер: ' . $_SESSION['t'] . '<br> Трек номер отправлен на указаную Вами почту.';
-header('Location: ../../wechat/order.php');
+header('Location: ../order.php');
 // Завершения соединения через CURL
 curl_close($url);
 

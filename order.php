@@ -54,6 +54,11 @@
 		.country {
 			text-align: left;
 		}
+
+		.descriptionCoutry {
+			font-size: 0.7em;
+			color: rgb(200, 0, 0);
+		}
 	</style>
 	
 </head>
@@ -92,12 +97,16 @@
 				  	<a href="stubr.php">
 				   		<p class="pp country">
 							<img src="images/russia.png" style="height: 50px; margin-right: 20px;">
-							Россия</p>
+							Россия
+								<span class="descriptionCoutry">(доставка посылок до ПВЗ и постоматов)</span>
+							</p>
 				   </a>
 				   	<a href="stubk.php">
 				   		<p class="pp country ">
 							<img src="images/kazakhstan.png" style="height: 50px; margin-right: 20px;">
-							Казахстан</p>
+							Казахстан
+							<span class="descriptionCoutry">(доставка посылок до двери)</span>
+							</p>
 				   </a>
 				</div>
 		</div>
