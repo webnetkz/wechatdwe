@@ -77,17 +77,6 @@
                </button>
                <a href="tips.php" class="navbar-brand"><img src="images/miniLogo.png" alt="logo dwe"></a>
           </div>
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-               <li class="active"><a href="order.php">Оформить</a></li>
-                    <li><a href="contact.php">Контакты</a></li>
-                    <li><a href="terms.php">Условия</a></li>
-                    <li><a href="tips.php">Советы</a></li>
-                    <hr>
-                    <li><a href="https://home.courierexe.ru/290/tracking/">Трекинг</a></li>
-                    <li><a href="https://home.courierexe.ru/290/auth/login">Кабинет</a></li>
-               </ul>
-          </div>
 
   </div>
 </div>

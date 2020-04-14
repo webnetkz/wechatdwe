@@ -49,17 +49,6 @@
                </button>
                <a href="tips.php" class="navbar-brand"><img src="images/miniLogo.png" alt="logo dwe"></a>
           </div>
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="order.php">Оформить</a></li>
-                    <li><a href="contact.php">Контакты</a></li>
-                    <li><a href="terms.php">Условия</a></li>
-                    <li><a href="tips.php">Советы</a></li>
-                    <hr>
-                    <li><a href="https://home.courierexe.ru/290/tracking/">Трекинг</a></li>
-                    <li><a href="https://home.courierexe.ru/290/auth/login">Кабинет</a></li>
-               </ul>
-          </div>
 
   </div>
 </div>
@@ -73,7 +62,7 @@
                <div class="col-md-12 col-sm-12">
                     <hr>
                     <h2>Условия доставки</h2>
-    <p style="text-align: left;">1. Отправите посылку курьерской службой на любой склад нашей компании:</p>
+    <p style="text-align: left;">1 шаг: Отправите посылку курьерской службой на любой склад нашей компании:</p>
     <hr>
     <div>
 					   		<p class="pp">仓库地址 <br> Адреса складов</p>
@@ -83,15 +72,15 @@
 					   		<p class="pp">广州市白云区西槎路31号西城同德鞋业基地南区5号525库房  联系人 : 娜希娅 13059185264</p>
 				   </div>
                    <hr>
-                <p style="text-align: left;">2. Зайдите в нашу учетную запись и заполните данные отправителя и получателя, трекинг-номер посылки, отправленной к нам на склад.</p>
+                <p style="text-align: left;">2 шаг:  зайдите в учетную запись wechat/DWExpress и заполните данные отправителя/получателя, трек-номер (quaidi) посылки, отправленной к нам на склад.</p>
                     <hr>
-                <p style="text-align: left;">3.После поступления и обработки вашей посылки, в учетной записи появится счет для оплаты.</p>
+                <p style="text-align: left;">3 шаг: счет для оплаты появится в учетной записи после приема и обработки Вашей посылки на нашем складе</p>
                     <hr>
-                <p style="text-align: left;">4. Оплатите доставку через WeChat- кошелёк или банковской карты.</p>
+                <p style="text-align: left;">4 шаг: оплатите доставку посредством WeChat Pay либо банковской картой.</p>
                     <hr>
-                <p style="text-align: left;">5. Посылка будет отправлена адресату после оплаты.</p>
+                <p style="text-align: left;">5 шаг: отправление посылки произойдет после оплаты</p>
                     <hr>
-                <p style="text-align: left;">6. Движение посылки вы можете отслеживать в нашей учётной записи через свой личный кабинет.</p>
+                <p style="text-align: left;">6 шаг:  мониторинг доставки Вашей посылки вы можете производить в учетной записи wechat/DWExpress через трекинг.</p>
                 <p>
      <img src="images/courier.png" style="box-shadow: 0 10px 30px rgb(99, 99, 99);">
     </p>
