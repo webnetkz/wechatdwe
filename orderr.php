@@ -183,7 +183,7 @@ body {
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
- <input type="phone" class="form-control" name="fromPhone" id="phonefrom" placeholder="Введите номер"/>
+ <input type="tel" class="form-control" name="fromPhone" placeholder="Номер телефона" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" placeholder="Номер телефона" class="inp" oninput="validatePhone(this); console.log(this.value)" oninvalid="this.setCustomValidity('Вы не верно ввели номер телефона')" onclick="this.value = '+7 ('" required/>
  </div>
  </div>
  </div>
@@ -202,7 +202,7 @@ body {
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
- <input type="phone" class="form-control" name="toPhone" id="phoneto" placeholder="Введите номер"/>
+ <input type="tel" class="form-control" name="toPhone" placeholder="Номер телефона" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" placeholder="Номер телефона" class="inp" oninput="validatePhone(this); console.log(this.value)" oninvalid="this.setCustomValidity('Вы не верно ввели номер телефона')" onclick="this.value = '+7 ('" required/>
  </div>
  </div>
  </div>
@@ -534,7 +534,7 @@ border-radius: 50%;
 </script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>
-
+<script src="js/phone.js"></script>
 
 
 

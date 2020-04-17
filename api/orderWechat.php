@@ -1,49 +1,29 @@
 <?php
 
-//require_once '../libs/debug.php';
-
 session_start();
 
 // Если кнопка запроса нажата
 if( !empty($_POST['sendZakaz']) ) {
 
         // From data inputs
-        //$fromCompany = htmlspecialchars($_POST['fromCompany']);
-        //$fromCompany = trim($fromCompany);
-
         $fromFIO = htmlspecialchars($_POST['fromFIO']);
         $fromFIO = trim($fromFIO);
 	
-	    $pack = htmlspecialchars($_POST['pack']);
+	      $pack = htmlspecialchars($_POST['pack']);
         $pack = trim($pack);
 	
-	    $photo = htmlspecialchars($_POST['photo']);
+	      $photo = htmlspecialchars($_POST['photo']);
         $photo = trim($photo);
-
-        //$fromCity = htmlspecialchars($_POST['fromCity']);
-        //$fromCity = trim($fromCity);
-
-        //$fromAdres = htmlspecialchars($_POST['fromAdres']);
-        //$fromAdres = trim($fromAdres);
 
         $fromPhone = htmlspecialchars($_POST['fromPhone']);
         $fromPhone = trim($fromPhone);
 
-        //$fromDate = htmlspecialchars($_POST['fromDate']);
-        //$fromDate = trim($fromDate);
-
-        //$fromEmail = htmlspecialchars($_POST['fromEmail']);
-        //$fromEmail = trim($fromEmail);
-
         $fromQID = htmlspecialchars($_POST['fromQID']);
         $fromQID = trim($fromQID);
 	
-	    $obl = htmlspecialchars($_POST['obl']);
+	      $obl = htmlspecialchars($_POST['obl']);
         $obl = trim($obl);
 
-        // To data inputs
-        //$toCompany = htmlspecialchars($_POST['toCompany']);
-        //$toCompany = trim($toCompany);
 
         $toFIO = htmlspecialchars($_POST['toFIO']);
         $toFIO = trim($toFIO);
@@ -57,20 +37,15 @@ if( !empty($_POST['sendZakaz']) ) {
         $toPhone = htmlspecialchars($_POST['toPhone']);
         $toPhone = trim($toPhone);
 	
-	    $prim = htmlspecialchars($_POST['prim']);
+	      $prim = htmlspecialchars($_POST['prim']);
         $prim = trim($prim);
 
-        //$toIndex = htmlspecialchars($_POST['toIndex']);
-        //$toIndex = trim($toIndex);
 
         $toMass = htmlspecialchars($_POST['toMass']);
         $toMass = trim($toMass);
 
         $toPrice = htmlspecialchars($_POST['toPrice']);
         $toPrice = trim($toPrice);
-
-        //$toItems = htmlspecialchars($_POST['toItems']);
-        //$toItems = trim($toItems);
 
         $toToItems = htmlspecialchars($_POST['toToItems']);
         $toToItems = trim($toToItems);
