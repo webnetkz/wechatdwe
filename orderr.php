@@ -23,7 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
 
-body {
+    body {
       background-color: rgb(255, 255, 255);
     }
     .modal {
@@ -108,9 +108,36 @@ body {
     .login-button{
       margin-top: 15px;
     }
-  </style>
+    nav.navigation {
+      display: flex;
+      justify-content: space-around;
+			position: fixed;
+			z-index: 999999;
+			width: 100vw;
+			height: 2.6em;
+			box-shadow: 0 0 10px rgb(99, 99, 99);
+			background: linear-gradient(89deg,#1697bf 3%,#68cef5 98%);
+		}
+		.navigationItem {
+      display: inline-block;
+    }
+    .navigationIcon {
+      margin-top: 0.1em;
+      font-size: 2.2em;
+      color: rgb(255, 255, 255);
+    }
+	</style>
+	
 </head>
 <body>
+		<nav class="navigation">
+			<div class="navigationItem">
+        <i class="fa fa-arrow-circle-left navigationIcon" onclick="window.history.back()"></i>
+			</div>
+			<div class="navigationItem">
+        <i class="fa fa-arrow-circle-right navigationIcon" onclick="window.history.forward()"></i>
+			</div>
+		</nav>
 
       <div class="content-form">
         <script>
