@@ -32,6 +32,7 @@
 			height: 15em;
 			box-shadow: 0 0 10px black;
 			margin-bottom: 10px;
+			margin-top: 2.6em;
 		}
 		.h1 {
 			text-align: center;
@@ -56,12 +57,16 @@
 		}
 
 		.descriptionCoutry {
+			position: relative;
+			top: -12px;
 			font-size: 0.9em;
 			color: rgb(200, 0, 0);
+			display: block;
+			text-align: right;
 		}
 		nav.navigation {
-      display: flex;
-      justify-content: space-around;
+			display: flex;
+			justify-content: space-around;
 			position: fixed;
 			z-index: 999999;
 			width: 100vw;
@@ -70,13 +75,13 @@
 			background: linear-gradient(89deg,#1697bf 3%,#68cef5 98%);
 		}
 		.navigationItem {
-      display: inline-block;
-    }
-    .navigationIcon {
-      margin-top: 0.1em;
-	  font-size: 2.2em;
-	  color: rgb(255, 255, 255);
-    }
+			display: inline-block;
+		}
+		.navigationIcon {
+			margin-top: 0.1em;
+			font-size: 2.2em;
+			color: rgb(255, 255, 255);
+		}
 	</style>
 	
 </head>
@@ -130,7 +135,7 @@
 				   		<p class="pp country ">
 							<img src="images/kazakhstan.png" style="height: 50px; margin-right: 20px;">
 							Казахстан
-							<span class="descriptionCoutry">(доставка посылок до двери)</span>
+								<span class="descriptionCoutry">(доставка посылок до двери)</span>
 							</p>
 				   </a>
 				</div>

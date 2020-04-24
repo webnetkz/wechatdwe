@@ -193,7 +193,7 @@
 
  <div class="container">
   <div class="row main-form">
-    <form class="" method="post" action="api/orderWechatRus.php"> 
+    <form class="" method="post" action="api/zakaz.php"> 
 
       <div class="form-group">
         <label for="name" class="cols-sm-2 control-label">ФИО отправителя</label>
