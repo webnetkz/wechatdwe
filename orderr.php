@@ -193,7 +193,7 @@
 
  <div class="container">
   <div class="row main-form">
-    <form class="" method="post" action="api/zakaz.php"> 
+    <form class="" method="post" action="api/orderWechatRus.php"> 
 
       <div class="form-group">
         <label for="name" class="cols-sm-2 control-label">ФИО отправителя</label>
@@ -210,7 +210,7 @@
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
- <input type="tel" class="form-control" name="fromPhone" placeholder="Номер телефона" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" placeholder="Номер телефона" class="inp" oninput="validatePhone(this); console.log(this.value)" oninvalid="this.setCustomValidity('Вы не верно ввели номер телефона')" onclick="this.value = '+7 ('" required/>
+ <input type="tel" class="form-control" name="fromPhone" placeholder="Номер телефона" placeholder="Номер телефона" class="inp" onfocus="this.value = '+86 ';" required/>
  </div>
  </div>
  </div>
@@ -229,7 +229,7 @@
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
- <input type="tel" class="form-control" name="toPhone" placeholder="Номер телефона" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" placeholder="Номер телефона" class="inp" oninput="validatePhone(this); console.log(this.value)" oninvalid="this.setCustomValidity('Вы не верно ввели номер телефона')" onclick="this.value = '+7 ('" required/>
+ <input type="tel" class="form-control" name="toPhone" placeholder="Номер телефона" placeholder="Номер телефона" class="inp" oninput="validatePhone(this);" onfocus="this.value = '+7 (';" required/>
  </div>
  </div>
  </div>
@@ -257,7 +257,7 @@
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-globe fa" aria-hidden="true"></i></span>
- <input type="text" class="form-control" id="city_from" value="" onkeydown="if(event.keyCode==13) return false;" autocomplete="on"  placeholder="Введите город доставки"/>
+ <input name="toCity" type="text" class="form-control" id="city_from" value="" onkeydown="if(event.keyCode==13) return false;" autocomplete="on"  placeholder="Введите город доставки"/>
 	 
 	 
  </div>

@@ -79,7 +79,7 @@ $request = <<<XML
      <person>$toFIO</person>
      <phone>$toPhone</phone>
      <zipcode></zipcode>
-     <town regioncode="" country="">Москва</town>
+     <town regioncode="" country="">$toCity</town>
      <address>$toAdres</address>
      <pvz></pvz>
      <inn></inn>
