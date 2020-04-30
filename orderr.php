@@ -98,7 +98,7 @@
       background: rgb(255, 255, 255);
       color: #FFF;
       text-shadow: none;
-      width: 100vw;
+      width: 100%;
       box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
     }
     span.input-group-addon i {
@@ -210,7 +210,7 @@
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
- <input type="tel" class="form-control" name="fromPhone" placeholder="Номер телефона" placeholder="Номер телефона" class="inp" onfocus="this.value = '+86 ';" required/>
+ <input type="tel" class="form-control" name="fromPhone" placeholder="Номер телефона" placeholder="Номер телефона" class="inp" required/>
  </div>
  </div>
  </div>
@@ -229,7 +229,7 @@
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
- <input type="tel" class="form-control" name="toPhone" placeholder="Номер телефона" placeholder="Номер телефона" class="inp" oninput="validatePhone(this);" onfocus="this.value = '+7 (';" required/>
+ <input type="tel" class="form-control" name="toPhone" placeholder="Номер телефона" placeholder="Номер телефона" class="inp" required/>
  </div>
  </div>
  </div>
@@ -416,9 +416,10 @@ border-radius: 50%;
     Коробка + уголок
     <i onclick="openModal4()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid  rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
-	  <label>
-    <input type="radio" class="option-input radio bttt" name="pack" value="Обрешётка"/>
-    Обрешётка
+  <div></div>
+  <label>
+    <input type="radio" class="option-input radio bttt" name="pack" value="Обрещетка" />
+    Обрещетка
     <i onclick="openModal5()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid  rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
 </div>
