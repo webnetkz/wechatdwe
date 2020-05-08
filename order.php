@@ -124,7 +124,7 @@
                	<div class="col-md-12 col-sm-12 blockW">
 				   		<p class="pp">Выберите страну</p>
 				   <hr>
-				  	<a href="stubr.php">
+				  	<a href="#" class="stubr.php">
 				   		<p class="pp country">
 							<img src="images/russia.png" style="height: 50px; margin-right: 20px;">
 							Россия

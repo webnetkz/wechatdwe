@@ -9,10 +9,10 @@ if( !empty($_POST['sendZakaz']) ) {
         $fromFIO = htmlspecialchars($_POST['fromFIO']);
         $fromFIO = trim($fromFIO);
 	
-	      $pack = htmlspecialchars($_POST['pack']);
+	    $pack = htmlspecialchars($_POST['pack']);
         $pack = trim($pack);
 	
-	      $photo = htmlspecialchars($_POST['photo']);
+	    $photo = htmlspecialchars($_POST['photo']);
         $photo = trim($photo);
 
         $fromPhone = htmlspecialchars($_POST['fromPhone']);
@@ -21,8 +21,8 @@ if( !empty($_POST['sendZakaz']) ) {
         $fromQID = htmlspecialchars($_POST['fromQID']);
         $fromQID = trim($fromQID);
 	
-	      $obl = htmlspecialchars($_POST['obl']);
-        $obl = trim($obl);
+	    //$obl = htmlspecialchars($_POST['obl']);
+        //$obl = trim($obl);
 
 
         $toFIO = htmlspecialchars($_POST['toFIO']);
@@ -37,7 +37,7 @@ if( !empty($_POST['sendZakaz']) ) {
         $toPhone = htmlspecialchars($_POST['toPhone']);
         $toPhone = trim($toPhone);
 	
-	      $prim = htmlspecialchars($_POST['prim']);
+	    $prim = htmlspecialchars($_POST['prim']);
         $prim = trim($prim);
 
 
@@ -125,20 +125,24 @@ curl_setopt($url, CURLOPT_POSTFIELDS, $request);
 $response = curl_exec($url);
 
 $xml = simplexml_load_string($response);
-/*
-if(!empty($xml)) {
-  echo  (string)$xml->createorder['orderno'];
-}
-*/
 
-//$_SESSION['t'] = (string)$xml->createorder['orderno'];
-//$_SESSION['email'] = $fromEmail;
+		// From data inputs
+        $_SESSION['fromFIO'] = $fromFIO;
+        $_SESSION['pack'] = $pack;
+        $_SESSION['photo'] = $photo;
+        $_SESSION['fromPhone'] = $fromPhone;
+        $_SESSION['fromQID'] = $fromQID;
+        $_SESSION['toFIO'] = $toFIO;
+        $_SESSION['toCity'] = $toCity;
+        $_SESSION['toAdres'] = $toAdres;
+        $_SESSION['toPhone'] = $toPhone;
+        $_SESSION['prim'] = $prim;
+        $_SESSION['mass'] = $toMass;
+        $_SESSION['price'] = $toPrice;
+        $_SESSION['items'] = $toToItems;
 
 
-//require_once '../libs/mail.php';
-
-//$_SESSION['msg'] = 'Ваш трек номер: ' . $_SESSION['t'] . '<br> Трек номер отправлен на указаную Вами почту.';
-header('Location: ../order.php');
+header('Location: ../success.php');
 // Завершения соединения через CURL
 curl_close($url);
 

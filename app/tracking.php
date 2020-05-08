@@ -1,5 +1,5 @@
-﻿<?php
-//header('Location: ../maps/almaty.php');
+<?php
+session_start();
 // Если кнопка запроса нажата
 if( !empty($_GET['sendTracking']) ) {
     // Если значение трек номера заполнено
@@ -33,20 +33,25 @@ curl_setopt($url, CURLOPT_POSTFIELDS, $request);
 $response = curl_exec($url);
 
 $xml = simplexml_load_string($response);
-//echo '<pre>';
-//var_dump($xml);
+
 if(!empty($xml->order)) {
-    $tracking = (string)$xml->order['orderno'];
-    $datefrom = (string)$xml->order->sender->date;
-    $townfrom = (string)$xml->order->sender->town;
-    $townto = (string)$xml->order->receiver->town;
-    $mass = (string)$xml->order->weight;
-    $mest = (string)$xml->order->quantity;
-    $status = (string)$xml->order->status;
+    $_SESSION['tracking'] = (string)$xml->order['orderno'];
+    $_SESSION['datefrom'] = (string)$xml->order->sender->date;
+    //$_SESSION['townfrom'] = (string)$xml->order->sender->town;
+    $_SESSION['townto'] = (string)$xml->order->receiver->town;
+    $_SESSION['mass'] = (string)$xml->order->weight;
+    $_SESSION['mest'] = (string)$xml->order->quantity;
+    $_SESSION['status'] = (string)$xml->order->status;
 } else {
-    $msg = 'Трек номер не найден';
+    $_SESSION['msg'] = 'Трек номер не найден';
 }
 
+if($_SESSION['status'] === "NEW") {
+	$_SESSION['status'] = 'На складе в Китае, г. Иу';
+	header('Location: ../maps/yiwu.php');
+} else {
+	header('Location: ../maps/start.php');
+}
 
 
 // Завершения соединения через CURL

@@ -22,7 +22,10 @@
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-
+	  .ac_results > ul > li {
+	  	font-size: 1.4em;
+	  }
+	  
     body {
       background-color: rgb(255, 255, 255);
     }

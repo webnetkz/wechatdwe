@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/font-awesome.min.css">
 <style>
     body {
         margin: 0;
@@ -15,12 +16,12 @@
     }
     .label {
         color: rgb(255, 244, 244);
-        font-size: 1.3em;
+        font-size: 4em;
     }
     .inp_track {
         display: block;
-        width: 30%;
-        margin-left: 35%;
+        width: 80%;
+        margin-left: 10%;
         margin-top: 5px;
         text-align: center;
         outline: none;
@@ -34,12 +35,13 @@
         box-shadow: 0 0 10px rgb(44, 44, 77);
     }
     .btn_track {
-        margin-top: 10px;
+        margin-top: 30px;
         text-align: center;
         outline: none;
-        border-radius: 3px;
+        border-radius: 50px;
         border: none;
-        padding: 4px;
+        padding: 18px;
+		font-size: 1.1em;
         transition-duration: 500ms;
         box-shadow: 0 0 5px rgb(99, 99, 99);
         font-weight: 600;
@@ -49,13 +51,108 @@
         height: 30%;
         background: linear-gradient(89deg,#1697bf 3%,#68cef5 98%);
     }
+	nav.navigation {
+			display: flex;
+			justify-content: space-around;
+			position: fixed;
+			z-index: 999999;
+			width: 100vw;
+			height: 2.6em;
+			box-shadow: 0 0 10px rgb(99, 99, 99);
+			background: linear-gradient(89deg,#1697bf 3%,#68cef5 98%);
+		}
+		.navigationItem {
+			display: inline-block;
+		}
+		.navigationIcon {
+			margin-top: 0.1em;
+			font-size: 2.2em;
+			color: rgb(255, 255, 255);
+		}
 </style>
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d41752556.0997238!2d56.09637343361268!3d50.30361626282448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skz!4v1586411276460!5m2!1sru!2skz" class="maps" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+<nav class="navigation">
+			<div class="navigationItem">
+        <i class="fa fa-arrow-circle-left navigationIcon" onclick="window.history.back()"></i>
+			</div>
+			<div class="navigationItem">
+        <i class="fa fa-arrow-circle-right navigationIcon" onclick="window.history.forward()"></i>
+			</div>
+		</nav>
+<div id="map" class="maps"></div>
 <div class="info">
-    <form action="../app/test.php" method="GET">
+    <form action="../app/tracking.php" method="GET">
         <label for="track" class="label">Введите трек номер
             <input type="text" id="track" placeholder="трек номер" class="inp_track" name="numberTracking">
             <input type="submit" class="btn_track" name="sendTracking" value="Отследить">
         </label>
     </form>
 </div>
+<?php
+	unset($_SESSION);
+?>
+<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=<your API-key>" type="text/javascript"></script>
+<script>
+	ymaps.ready(function () {
+    var myMap = new ymaps.Map('map', {
+            center: [29.3063401,120.0748427],
+            zoom: 3
+        }, {
+            searchControlProvider: 'yandex#search'
+        }),
+
+        // Creating a content layout.
+        MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+        ),
+
+        myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+            hintContent: 'A custom placemark icon',
+            balloonContent: 'This is a pretty placemark'
+        }, {
+            /**
+             * Options.
+             * You must specify this type of layout.
+             */
+            //iconLayout: 'default#image',
+            // Custom image for the placemark icon.
+            //iconImageHref: 'img/metka.gif',
+            // The size of the placemark.
+            //iconImageSize: [64, 64],
+            /**
+             * The offset of the upper left corner of the icon relative
+             * to its "tail" (the anchor point).
+             */
+            iconImageOffset: [-5, -38]
+        }),
+
+        myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
+            hintContent: 'A custom placemark icon with contents',
+            balloonContent: 'This one — for Christmas',
+            //iconContent: '13'
+        }, {
+            /**
+             * Options.
+             * You must specify this type of layout.
+             */
+            iconLayout: 'default#imageWithContent',
+            // Custom image for the placemark icon.
+            //iconImageHref: 'images/ball.png',
+            // The size of the placemark.
+            iconImageSize: [0, 0],
+            /**
+             * The offset of the upper left corner of the icon relative
+             * to its "tail" (the anchor point).
+             */
+            iconImageOffset: [-24, -24],
+            // Offset of the layer with content relative to the layer with the image.
+            iconContentOffset: [15, 15],
+            // Content layout.
+            iconContentLayout: MyIconContentLayout
+        });
+
+    myMap.geoObjects
+        .add(myPlacemark)
+        .add(myPlacemarkWithContent);
+});
+
+</script>
