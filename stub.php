@@ -1,3 +1,13 @@
+<?php
+
+	$country = $_GET['val'];
+
+	if($country == 'ru') {
+		$country = 'Россию';
+	} else {
+		$country = 'Казахстан';
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +19,7 @@
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>Оформления заказа Россия DWE</title>
+<title>Оформления заказа <?=$country?> DWE</title>
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -152,7 +162,7 @@ nav.navigation {
 		<div class="container">
           <div class="row">
                <div class="col-md-12 col-sm-12 blockW">
-				   				   <h1 class="h2">Доставка в Россию (в Пункты выдачи заказов (ПВЗ) либо поcтаматы в Вашем городе)</h1>
+				   				   <h1 class="h2">Доставка в <?=$country?> (в Пункты выдачи заказов (ПВЗ) либо поcтаматы в Вашем городе)</h1>
 									  <i style="font-size: 0.8em;">Через постаматы, установленные в ближайшем от вас супермаркете или торговом центре, вы можете самостоятельно в любое удобное время получить свой заказ - без очередей и ожидания курьера.</i>
 									  <h1 class="h2">Важная информация!</h1>
 				   	<p class="ppp">1. Мы не сможем принять на склад в Китае посылки «kuàidì» с оплатой при получении!</p>
@@ -321,7 +331,7 @@ nav.navigation {
 		</div>
 	</div>-->
 <div style="position: fixed; left: 0; top: 90vh; width: 100vw; height: 10vh; background-color: rgba(255, 255, 255, 0.8);">
-		<a href="orderr.php">
+		<a href="newOrder.php?val=<?=$_GET['val']?>">
 			<button type="button" class="btn btn-primary" style="width: 80%; margin-bottom: 5px; margin-left: 10%; margin-top: 15px;">Оформить</button>
 		</a>
 	</div>

@@ -1,0 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+
+}
+div.content {
+	position: fixed;
+	top: 4em;
+	bottom: 4em;
+	left: 1em;
+	right: 1em;
+}
+.fixed {
+	position: fixed;
+	height: 3em;
+	width: 100vw;
+	background: linear-gradient(89deg,#1697bf 3%,#68cef5 98%);
+	box-shadow: 0 0 10px rgb(77, 77, 77);
+	z-index: 9999999;
+}
+header {
+	top: 0;
+}
+footer {
+	top: calc(100vh - 3em);
+}

@@ -124,14 +124,14 @@
                	<div class="col-md-12 col-sm-12 blockW">
 				   		<p class="pp">Выберите страну</p>
 				   <hr>
-				  	<a href="#" class="stubr.php">
+				  	<a href="stub.php?val=ru" class="stubr.php">
 				   		<p class="pp country">
 							<img src="images/russia.png" style="height: 50px; margin-right: 20px;">
 							Россия
 								<span class="descriptionCoutry">(доставка посылок до ПВЗ и постоматов)</span>
 							</p>
 				   </a>
-				   	<a href="stubk.php">
+				   	<a href="stub.php?val=kz">
 				   		<p class="pp country ">
 							<img src="images/kazakhstan.png" style="height: 50px; margin-right: 20px;">
 							Казахстан

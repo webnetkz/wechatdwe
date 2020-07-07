@@ -1,3 +1,15 @@
+<?php
+
+	$country = $_GET['val'];
+
+	if($country == 'ru') {
+		$toCountry = 'Россия';
+		$autoList = 'rus';
+	} else {
+		$toCountry = 'Казахстан';
+		$autoList = 'kaz';
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +23,7 @@
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>Оформления заказа Казахстан DWE</title>
+<title>Оформления заказа <?=$country?> DWE</title>
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -22,10 +34,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-	  .ac_results > ul > li {
-	  	font-size: 1.4em;
-	  }
-	  
+
     body {
       background-color: rgb(255, 255, 255);
     }
@@ -52,6 +61,7 @@
       border-radius: 5px;
       border: 1px solid rgb(0, 158, 223);
     }
+
 
 
 
@@ -146,7 +156,7 @@
           $(document).ready(function(){
           // --- Автозаполнение ---
           $("#city_from").autocompleteArray([
-            <?php require_once "dataCitys/kaz.php"?>
+            <?php require_once "dataCitys/".$autoList.".php";?>
           ],
               {
                 delay:10,
@@ -168,7 +178,7 @@
           $(document).ready(function(){
           // --- Автозаполнение ---
           $("#oblto").autocompleteArray([
-            <?php require_once "dataCitys/oblKaz.php"?>
+            <?php require_once "dataCitys/obl".$autoList.".php";?>
           ],
               {
                 delay:10,
@@ -195,7 +205,7 @@
 
  <div class="container">
   <div class="row main-form">
-    <form class="" method="post" action="api/orderWechat.php"> 
+    <form class="" method="post" action="api/orderWechat.php?val=<?=$toCountry?>"> 
 
       <div class="form-group">
         <label for="name" class="cols-sm-2 control-label">ФИО отправителя</label>
@@ -207,7 +217,7 @@
           </div>
       </div>
 
-      <div class="form-group">
+ <div class="form-group">
  <label for="email" class="cols-sm-2 control-label">Телефон отправителя</label>
  <div class="cols-sm-10">
  <div class="input-group">
@@ -245,7 +255,7 @@
  </div>
  </div>
  </div>
-<!--	 	  <div class="form-group">
+	 	  <div class="form-group">
  <label for="email" class="cols-sm-2 control-label">Область</label>
  <div class="cols-sm-10">
  <div class="input-group">
@@ -253,7 +263,7 @@
  <input type="text" class="form-control" name="obl" id="oblto" placeholder="Введите область доставки"/>
  </div>
  </div>
- </div>-->
+ </div>
 	 	 	  <div class="form-group">
  <label for="email" class="cols-sm-2 control-label">Город</label>
  <div class="cols-sm-10">
@@ -406,28 +416,28 @@ border-radius: 50%;
   <label class="btt">
     <input type="radio" class="option-input radio bttt" name="pack" value="Пленка + пакет"/>
     Пленка + пакет
-  <i onclick="openModal2()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid rgb(0, 158, 223); border-radius: 5px;"></i>
+  <i onclick="openModal2()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid  rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
   <label class="btt">
     <input type="radio" class="option-input radio bttt" name="pack" value="Коробка"/>
     Коробка
-    <i onclick="openModal3()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid rgb(0, 158, 223); border-radius: 5px;"></i>
+    <i onclick="openModal3()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid  rgb(0, 158, 223); border-radius: 5px;"></i>
   </label class="btt">
   <label>
     <input type="radio" class="option-input radio bttt" name="pack" value="Коробка + уголок" />
     Коробка + уголок
-    <i onclick="openModal4()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid rgb(0, 158, 223); border-radius: 5px;"></i>
+    <i onclick="openModal4()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid  rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
   <div></div>
-	  <label>
-    <input type="radio" class="option-input radio bttt" name="pack" value="Обрешётка"/>
-    Обрешётка
-    <i onclick="openModal5()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid rgb(0, 158, 223); border-radius: 5px;"></i>
+  <label>
+    <input type="radio" class="option-input radio bttt" name="pack" value="Обрещетка" />
+    Обрещетка
+    <i onclick="openModal5()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid  rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
 </div>
 	 <hr>
 
-	   <label>
+   <label>
 		   <h3 onclick="openModal6()">Услуга фотоотчёт</h3>
     <input type="checkbox" class="option-input radio bttt" name="photo" value="Фото" onclick="openModal6()"/>
     Да
