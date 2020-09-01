@@ -5,7 +5,7 @@
 	
 	if(!empty($_POST['send'])) {
 	
-		$sqlLogin = 'SELECT * FROM users WHERE login = "'.$_POST['login'].'"';
+		$sqlLogin = 'SELECT * FROM users WHERE phone = "'.$_POST['phone'].'"';
 		$resLogin = $pdo->query($sqlLogin);
 		$resLogin = $resLogin->fetch(PDO::FETCH_ASSOC);
 		
@@ -15,15 +15,14 @@
 			$pass = htmlentities($pass);
 			
 			if($pass == $resLogin['pass']) {
-				$_SESSION['login'] = $resLogin['login'];
-				header('Location: ../cabinet.php');
+				header('Location: reg.php?login='.$resLogin['id'].'');
 			} else {
 				$_SESSION['msg'] = 'Не верный пароль!';
 				header('Location: ../signin.php');
 			}
 
 		} else {
-			$_SESSION['msg'] = 'Пользователь с этим логином не зарегистрирован!';
+			$_SESSION['msg'] = 'Пользователь с этим номером не зарегистрирован!';
 			header('Location: ../signin.php');
 		}
 	}

@@ -1,5 +1,10 @@
 <?php
+	
 	session_start();
+
+	if( isset($_COOKIE['secret']) || isset($_GET['login']) ) {
+		header('Location: cabinet.php');
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,6 +88,9 @@ nav.navigation {
 			border-radius: 6px;
 			padding: 3px;
 		}
+	.btn {
+	background-color: rgb(255, 255, 255);
+	}
 	</style>
 	
 </head>
@@ -97,22 +105,42 @@ nav.navigation {
 		</nav>
 
 	
-	<form action="../cabinet/sign/signup.php" method="POST" style="position: relative; top: 100px;" class="fff">
-		<p style="font-size: 1.4em; color: white;"><?php if(!empty($_SESSION['msg'])) { echo $_SESSION['msg']; unset($_SESSION['msg']);}?></p>
+	<form action="../cabinet/signup.php" method="POST" style="position: relative; top: 100px;" class="fff">
+		<p style="font-size: 1.4em; color: white;">
+			
+			<?php
+				if(!empty($_SESSION['msg'])) {
+					echo $_SESSION['msg'];
+					unset($_SESSION['msg']);
+				}
+			?>
+		
+		</p>
 		<p style="font-size: 1.4em; color: white;">Регистрация личного кабинета</p>
 		<p style="font-size: 1em; color: white;">Это необходимо для контроля отправлений</p>
-		<p><input type="text" placeholder="Логин" name="login" class="inp" required autocomplete="off"></p>
-		<p><input type="password" placeholder="Пароль" name="pass" class="inp" required autocomplete="off"></p>
-		<p><input type="password" placeholder="Повторите пароль" name="passTwo" class="inp" required autocomplete="off"></p>
-		<p><input type="submit" name="send" value="Регистрация" class="btn"></p>
+		<p>
+			<input type="text" placeholder="Имя" name="firstName" class="inp" required autocomplete="off">
+		</p>
+		<p>
+			<input type="text" placeholder="Фамилия" name="lastName" class="inp" required autocomplete="off">
+		</p>
+		<p>
+			<input type="text" value="<?php if( !empty($_GET['newPhone']) ) { echo $_GET['newPhone']; } ?>" placeholder="Номер телефона" name="phone" class="inp" required autocomplete="off">
+		</p>
+		<p>
+			<input type="password" placeholder="Пароль" name="pass" class="inp" required autocomplete="off">
+		</p>
+		<p>
+			<input type="password" placeholder="Повторите пароль" name="passTwo" class="inp" required autocomplete="off">
+		</p>
+		<p>
+			<input type="submit" name="send" value="Регистрация" class="btn">
+		</p>
 		<hr>
 		<p style="font-size: 1em; color: white;">Если Вы зарегистрированы, то авторизуйтесь</p>
 		<p>
 			<button class="btn" onclick="location.href = 'signin.php'">Авторизация</button>
 		</p>
 	</form>
-	
-
-
 </body>
 </html>

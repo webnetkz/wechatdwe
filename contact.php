@@ -58,6 +58,8 @@
       justify-content: space-around;
 			position: fixed;
 			z-index: 999999;
+			top: 0;
+			left: 0;
 			width: 100vw;
 			height: 2.6em;
 			box-shadow: 0 0 10px rgb(99, 99, 99);
@@ -93,20 +95,6 @@
 
 <!-- Navigation section  -->
 
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-     <div class="container">
-
-     <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="tips.php" class="navbar-brand"><img src="images/miniLogo.png" alt="logo dwe"></a>
-          </div>
-
-  </div>
-</div>
 
 <div class="container" style="margin-top: 100px; font-size: 1.2em;">
           <div class="row">
@@ -117,15 +105,22 @@
 					   		<p class="pp">浙江省义乌市后宅街道遗安二区31栋一单元一楼DWE,15628282277</p>
 					   <hr>
 					   		<p class="pp">广州市白云区西槎路31号西城同德鞋业基地南区5号525库房  联系人 : 娜希娅 13059185264</p>
+					   					   <hr>
+					   		<p class="pp">白沟库房接货地址：河北省保定市白沟镇物流中心一号接货人：刘凯   接货电话13241430188</p>
+					   					   <hr>
+					   		<p class="pp">广州库房地址:广州白云区同德鞋业基地，南区3号 接货人丁弘峰  电话 18665070188</p>
+					   					   <hr>
+					   		<p class="pp">乌鲁木齐接货地址：乌鲁木齐市红雁路257号131库房B区（38号）库房接货人 别克   接货电话： 13240980188</p>
 				   </div>
 			  </div>
 		</div>
 	</div>
+		<a href="Оферта DWExpress.docx" download style="margin: 20px; display: block; text-align: center; padding: 5px;box-shadow: 0 0 10px rgb(100, 100, 100);border-radius: 5px;background: white;">Оферта</a>
 
 
 <!-- SCRIPTS -->
 
-<script src="js/jquery.js"></script>
+<script src="js/jquery.js">//13059185264</script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>
 

@@ -1,3 +1,3 @@
 <?php
 
-	header('Location: https://biu.kz');
+	header('Location: https://express.webnet.kz');

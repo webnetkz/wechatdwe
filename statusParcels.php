@@ -1,10 +1,20 @@
 <?php
 
-	require_once 'app/libs/debug/debug.php';
+	session_start();
 
-	if( empty($_COOKIE['secret']) ) {
+	if( !isset($_COOKIE['secret']) ) {
 		header('Location: sign.php');
 	}
+
+	require_once 'app/db/cs.php';
+	$sql = 'SELECT * FROM dispatch WHERE login = "'.$_COOKIE['secret'].'"';
+	$res = $pdo->query($sql);
+	$res = $res->fetchAll(PDO::FETCH_ASSOC);
+	
+	if(!$res) {
+		$_SESSION['msg'] = 'У Вас нет посылок';
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,6 +113,15 @@ nav.navigation {
 		border: 1px solid rgb(155, 155, 155);
 		background-color: rgb(255, 255, 255);
 	}
+	
+	.payment0 {
+		background: red;
+		color: white;
+	}
+	.payment1 {
+		background: green;
+		color: white;
+	}
 	</style>
 	
 </head>
@@ -118,39 +137,57 @@ nav.navigation {
 
 	
 	<div style="position: relative; top: 50px;" class="fff">
-		<p style="font-size: 1.4em; color: white;">
-			<?php
-				if(!empty($_SESSION['msg'])) {
-					echo $_SESSION['msg'];
-					unset($_SESSION['msg']);
+
+		<p style="font-size: 1.4em; color: white;">Статусы посылок</p>
+				<p style="font-size: 1.4em; color: white;">
+					<?php
+						if( !empty($_SESSION['msg']) ) {
+							echo $_SESSION['msg'];
+							unset($_SESSION['msg']);
+						}
+					?>
+				</p>
+		
+		<?php
+		foreach($res as $v) {
+			echo '<p>';
+			
+				if($v['status'] == 'Новая') {
+					echo '<button class="navBtn">';
+				} else {
+					echo '<button class="navBtn payment'.$v['payment'].'">';
 				}
-			?>
-		</p>
-		<p style="font-size: 1.4em; color: white;">Личный кабинет</p>
-		<p>
-			<button class="navBtn" onclick="location.href = 'statusParcels.php';">
-				<i class="fa fa-search icons"></i>
-				Мои посылки
-			</button>
-		</p>
-		<p>
-			<button class="navBtn" onclick="location.href = 'newOrder.php?val=ru';">
-				<i class="fa fa-plus icons"></i>
-				Оформить отправление Россия
-			</button>
-		</p>
-		<p>
-			<button class="navBtn" onclick="location.href = 'newOrder.php?val=kz';">
-				<i class="fa fa-plus icons"></i>
-				Оформить отправление Казахстан
-			</button>
-		</p>
-		<p>
-			<button class="navBtn" onclick="location.href = 'cabinet/logout.php'">
-				<i class="fa fa-check-circle icons"></i>
-				Выйти из кабинета 
-			</button>
-		</p>
+			
+				echo $v['qr_name'];
+				echo '</button>';
+			echo '</p>';
+			
+			if($v['payment'] == 0 && $v['status'] != 'Новая') {
+				echo '<p>';
+					echo '<button class="navBtn" onclick="location.href = \'libwebtopay/payment.php?orderid='.$v['id'].'&mass='.$v['mass'].'&pack='.$v['pack'].'&photo='.$v['photo'].'&code='.$v['qr_name'].'&country='.$v['toCountrie'].'\'">';
+					echo 'Оплатить';
+					echo '</button>';
+				echo '</p>';
+			}
+			
+			echo '<p>';
+			echo '<button class="navBtn" style="font-weight: 600; width: 40%;" onclick="location.href = \'changeParcels.php?track='.$v['qr_name'].'\'">';
+			echo 'Редактировать</button>';
+
+			echo '<button class="navBtn" style="font-weight: 600; width: 40%;" onclick="location.href = \'maps/start.php?track='.$v['qr_name'].'\'">';
+			echo 'Отследить</button>';
+			echo '</p><hr>';
+
+			
+		}
+		
+		?>
+		
 	</div>
+	
+
+	<script>
+
+	</script>
 </body>
 </html>

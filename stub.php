@@ -4,8 +4,10 @@
 
 	if($country == 'ru') {
 		$country = 'Россию';
+		$path = 'доставка посылок до ПВЗ и постоматов';
 	} else {
 		$country = 'Казахстан';
+		$path = 'доставка посылок до двери';
 	}
 ?>
 <!DOCTYPE html>
@@ -162,7 +164,7 @@ nav.navigation {
 		<div class="container">
           <div class="row">
                <div class="col-md-12 col-sm-12 blockW">
-				   				   <h1 class="h2">Доставка в <?=$country?> (в Пункты выдачи заказов (ПВЗ) либо поcтаматы в Вашем городе)</h1>
+				   				   <h1 class="h2">Доставка в <?=$country?> (<?=$path?>)</h1>
 									  <i style="font-size: 0.8em;">Через постаматы, установленные в ближайшем от вас супермаркете или торговом центре, вы можете самостоятельно в любое удобное время получить свой заказ - без очередей и ожидания курьера.</i>
 									  <h1 class="h2">Важная информация!</h1>
 				   	<p class="ppp">1. Мы не сможем принять на склад в Китае посылки «kuàidì» с оплатой при получении!</p>
@@ -306,7 +308,7 @@ nav.navigation {
 	<li>Предметы непристойного и аморального содержания, секс-игрушки и порнография</li>
 	<li>Разрешения на право ношения оружия, трудовые книжки, военные билеты, паспорта и другие документы, удостоверяющие личность</li>
 	<li>Предметы, которые по своему характеру или упаковке могут представлять опасность для сотрудников склада и перевозчика или населения, пачкать или портить другие отправления, оборудование или собственность третьей стороны</li>
-
+<a href="Оферта DWExpress.docx" download style="margin: 20px; display: block; text-align: center; padding: 5px;box-shadow: 0 0 10px rgb(100, 100, 100);border-radius: 5px;background: white;">Оферта</a>
 </ul>
 				  </div>
 		</div>
@@ -335,6 +337,7 @@ nav.navigation {
 			<button type="button" class="btn btn-primary" style="width: 80%; margin-bottom: 5px; margin-left: 10%; margin-top: 15px;">Оформить</button>
 		</a>
 	</div>
+		
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>

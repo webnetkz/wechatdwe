@@ -1,5 +1,11 @@
 <?php
+	
 	session_start();
+
+	if( isset($_COOKIE['secret']) ) {
+		header('Location: cabinet.php');
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,6 +89,9 @@ nav.navigation {
 			border-radius: 6px;
 			padding: 3px;
 		}
+	.btn {
+	background-color: rgb(255, 255, 255);
+	}
 	</style>
 	
 </head>
@@ -98,9 +107,16 @@ nav.navigation {
 
 	
 	<form action="cabinet/signin.php" method="POST" style="position: relative; top: 100px;" class="fff">
-		<p style="font-size: 1.4em; color: white;"><?php if(!empty($_SESSION['msg'])) { echo $_SESSION['msg']; unset($_SESSION['msg']);}?></p>
+		<p style="font-size: 1.4em; color: white;">
+			<?php
+				if(!empty($_SESSION['msg'])) { 
+					echo $_SESSION['msg'];
+					unset($_SESSION['msg']);
+				}
+			?>
+		</p>
 		<p style="font-size: 1.4em; color: white;">Авторизация</p>
-		<p><input type="text" placeholder="Логин" name="login" class="inp" required autocomplete="off"></p>
+		<p><input type="text" placeholder="Номер телефона" name="phone" class="inp" required autocomplete="off"></p>
 		<p><input type="password" placeholder="Пароль" name="pass" class="inp" required autocomplete="off"></p>
 		<p><input type="submit" name="send" value="Авторизация" class="btn"></p>
 	</form>

@@ -1,9 +1,5 @@
 <?php
-	/*
-	ini_set('error_reporting', E_ALL);
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	*/
+
 	$date = date('d.m.Y');	 
 	$status = 'Новая';
 	$fromCity = 'Yiwu';
@@ -62,7 +58,13 @@ if( !empty($_POST['sendZakaz']) ) {
 	
 	    $obl = htmlspecialchars($_POST['obl']);
         $obl = trim($obl);
+	
+		$login = htmlspecialchars($_POST['login']);
+        $login = trim($login);
+
+
+		header('Location: https://express.webnet.kz/app/wechat/order.php?fromDate='.$date.'&fromCountrie=Китай&fromCity=Китай&fromContacts='.$fromContacts.'&fromPhone='.$fromPhone.'&toCountrie='.$toCountry.'&toCity='.$toCity.'&toAdres='.$toAdres.'&toContacts='.$toContacts.'&toPhone='.$toPhone.'&description='.$description.'&price='.$price.'&pack='.$pack.'&photo='.$photo.'&kuaidi='.$kuaidi.'&status='.$status.'&mass='.$mass.'&obl='.$obl.'.&login='.$_COOKIE['secret'].'');
 }
 
 
-header('Location: https://biu.kz/app/wechat/order.php?fromDate='.$date.'&fromCountrie=Китай&fromCity=Китай&fromContacts='.$fromContacts.'&fromPhone='.$fromPhone.'&toCountrie='.$toCountry.'&toCity='.$toCity.'&toAdres='.$toAdres.'&toContacts='.$toContacts.'&toPhone='.$toPhone.'&prim='.$prim.'&description='.$description.'&price='.$price.'&pack='.$pack.'&photo='.$photo.'&kuaidi='.$kuaidi.'&status='.$status.'&mass='.$mass.'&obl='.$obl.'');
+

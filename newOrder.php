@@ -1,6 +1,22 @@
 <?php
 
-	$country = $_GET['val'];
+	session_start();
+
+	if( !empty($_COOKIE['secret']) ) {
+		
+		$loginId = $_COOKIE['secret'];
+		
+		require_once 'app/pdo.php';
+		$sql = 'SELECT * FROM users WHERE id = "'.$loginId.'"';
+		$res = $pdo->query($sql);
+		$res = $res->fetch(PDO::FETCH_ASSOC);
+	}
+
+	if( !empty($_GET['val']) ) {
+		$country = $_GET['val'];
+	} else {
+		$country = 'ru';
+	}
 
 	if($country == 'ru') {
 		$toCountry = 'Россия';
@@ -23,7 +39,7 @@
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>Оформления заказа <?=$country?> DWE</title>
+<title>Оформления заказа <?=$toCountry?> DWE</title>
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -33,9 +49,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-
-    body {
+	<style>
+	body {
       background-color: rgb(255, 255, 255);
     }
     .modal {
@@ -106,6 +121,7 @@
     }
     .main-form{
       margin-top: 30px;
+	  margin-left: 0.5%;
       padding: 10px 10px;
       background: rgb(255, 255, 255);
       color: #FFF;
@@ -206,13 +222,14 @@
  <div class="container">
   <div class="row main-form">
     <form class="" method="post" action="api/orderWechat.php?val=<?=$toCountry?>"> 
-
+		
+		
       <div class="form-group">
         <label for="name" class="cols-sm-2 control-label">ФИО отправителя</label>
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" name="fromFIO" id="namefrom" placeholder="Введите имя"/>
+              <input type="text" class="form-control" name="fromFIO" id="namefrom" placeholder="Введите имя" value="<?php if(!empty($res['firstName'])){echo $res['firstName'].' '.$res['lastName'];}?>"/>
             </div>
           </div>
       </div>
@@ -222,7 +239,7 @@
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
- <input type="tel" class="form-control" name="fromPhone" placeholder="Номер телефона" placeholder="Номер телефона" class="inp" required/>
+ <input type="tel" class="form-control" name="fromPhone" placeholder="Номер телефона" placeholder="Номер телефона" class="inp" required value="<?php if(!empty($res['phone'])){echo $res['phone'];}?>" />
  </div>
  </div>
  </div>
@@ -293,7 +310,7 @@
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-barcode fa" aria-hidden="true"></i></span>
- <input type="text" class="form-control" name="fromQID" placeholder="Введите трекинг номер"/>
+ <input type="text" class="form-control" name="fromQID" placeholder="Введите трекинг номер" required/>
  </div>
  </div>
  </div>
@@ -306,7 +323,7 @@
  </div>
  </div>
  </div>
-	 	 	 	 	 	  <div class="form-group">
+	 	 	 	 	 	  <div class="form-group" style="display: none;">
  <label for="email" class="cols-sm-2 control-label">Примечание</label>
  <div class="cols-sm-10">
  <div class="input-group">
@@ -412,25 +429,25 @@ border-radius: 50%;
 
    </style>
 <div>
-	<h3>Выбор упаковки</h3>
+	<h3 style="color: rgb(0, 158, 223);">Выбор упаковки</h3>
   <label class="btt">
-    <input type="radio" class="option-input radio bttt" name="pack" value="Пленка + пакет"/>
+    <input type="radio" class="option-input radio bttt" name="pack" value="1" checked/>
     Пленка + пакет
   <i onclick="openModal2()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid  rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
   <label class="btt">
-    <input type="radio" class="option-input radio bttt" name="pack" value="Коробка"/>
+    <input type="radio" class="option-input radio bttt" name="pack" value="2"/>
     Коробка
     <i onclick="openModal3()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid  rgb(0, 158, 223); border-radius: 5px;"></i>
-  </label class="btt">
-  <label>
-    <input type="radio" class="option-input radio bttt" name="pack" value="Коробка + уголок" />
+  </label>
+  <label class="btt">
+    <input type="radio" class="option-input radio bttt" name="pack" value="3" />
     Коробка + уголок
     <i onclick="openModal4()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid  rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
   <div></div>
-  <label>
-    <input type="radio" class="option-input radio bttt" name="pack" value="Обрещетка" />
+  <label class="btt">
+    <input type="radio" class="option-input radio bttt" name="pack" value="4" />
     Обрещетка
     <i onclick="openModal5()" class="fa fa-question fa" aria-hidden="true" style="font-size: 2em; position: absolute; left: 80vw; margin-top: 15px; padding: 3px; padding-right: 5px; border: 1px solid  rgb(0, 158, 223); border-radius: 5px;"></i>
   </label>
