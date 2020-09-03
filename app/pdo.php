@@ -2,8 +2,8 @@
 
     $driver = 'mysql';
     $host = 'localhost:3306';
-    $db_name = 'tsxgkkan_';
-    $db_user = 'database';
+    $db_name = 'wechat';
+    $db_user = 'admin';
     $db_pass = 'fepipe7611!!QQ';
     $charset = 'utf8';
     $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
